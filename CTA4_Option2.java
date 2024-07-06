@@ -8,19 +8,25 @@ public class CTA4_Option2 {
 
         //prompting for 10 grades
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter 10 floating-point student grades, separated by a space");
-        String gradesList = scanner.nextLine();
-
-        //converting string to stringarray
-        String[] gradesArray = gradesList.split(" ");
-
-        //initializing float arraylist
         ArrayList<Float> gradesArrayFloat = new ArrayList<>();
-
-        //adding float to float arraylist
-        for (String grade: gradesArray) {
-            gradesArrayFloat.add(Float.valueOf(grade));
+        System.out.println("Enter 10 floating-point student grades, separated by a space");
+        for (int i = 1; i <= 10; i++) {
+            System.out.println("Enter grade " + i);
+            gradesArrayFloat.add(scanner.nextFloat());
         }
+        //System.out.println(gradesArrayFloatLoop);
+        // String gradesList = scanner.nextLine();
+
+        // //converting string to stringarray
+        // String[] gradesArray = gradesList.split(" ");
+
+        // //initializing float arraylist
+        // ArrayList<Float> gradesArrayFloat = new ArrayList<>();
+
+        // //adding float to float arraylist
+        // for (String grade: gradesArray) {
+        //     gradesArrayFloat.add(Float.valueOf(grade));
+        // }
 
         //initializing requested data
         Float gradesMax = gradesArrayFloat.get(0), gradesMin = gradesArrayFloat.get(0);
