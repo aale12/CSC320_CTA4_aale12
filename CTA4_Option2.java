@@ -7,41 +7,40 @@ public class CTA4_Option2 {
     public static void main(String[] args) {
 
         //prompting for 10 grades
+        Float gradesMax = null, gradesMin = null, gradesAverage, gradesSum = (float) 0.0;
         Scanner scanner = new Scanner(System.in);
         ArrayList<Float> gradesArrayFloat = new ArrayList<>();
-        System.out.println("Enter 10 floating-point student grades, separated by a space");
+        System.out.println("Enter 10 floating-point student grades");
         for (int i = 1; i <= 10; i++) {
             System.out.println("Enter grade " + i);
-            gradesArrayFloat.add(scanner.nextFloat());
+            Float userInput = scanner.nextFloat();
+            gradesArrayFloat.add(userInput);
+            gradesSum += userInput;
+            if (i == 1) {
+                gradesMax = userInput;
+                gradesMin = userInput;
+            }
+            else if (userInput < gradesMin) {
+                gradesMin = userInput;
+            } 
+            else if (userInput > gradesMax) {
+                gradesMax = userInput;
+            }
         }
-        //System.out.println(gradesArrayFloatLoop);
-        // String gradesList = scanner.nextLine();
 
-        // //converting string to stringarray
-        // String[] gradesArray = gradesList.split(" ");
-
-        // //initializing float arraylist
-        // ArrayList<Float> gradesArrayFloat = new ArrayList<>();
-
-        // //adding float to float arraylist
-        // for (String grade: gradesArray) {
-        //     gradesArrayFloat.add(Float.valueOf(grade));
+        // Float gradesMax = gradesArrayFloat.get(0), gradesMin = gradesArrayFloat.get(0);
+        // Float gradesSum = (float) 0.0;
+        // Float gradesAverage;
+        // for (Float grade: gradesArrayFloat) {
+        //     if (grade < gradesMin) {
+        //         gradesMin = grade;
+        //     }
+        //     if (grade > gradesMax) {
+        //         gradesMax = grade;
+        //     }
+        //     gradesSum += grade;
+        //     System.out.println(grade);
         // }
-
-        //initializing requested data
-        Float gradesMax = gradesArrayFloat.get(0), gradesMin = gradesArrayFloat.get(0);
-        Float gradesSum = (float) 0.0;
-        Float gradesAverage;
-        for (Float grade: gradesArrayFloat) {
-            if (grade < gradesMin) {
-                gradesMin = grade;
-            }
-            if (grade > gradesMax) {
-                gradesMax = grade;
-            }
-            gradesSum += grade;
-            System.out.println(grade);
-        }
         gradesAverage = gradesSum / gradesArrayFloat.size();
         System.out.println("Maximum is " + gradesMax);
         System.out.println("Minumum is " + gradesMin);
